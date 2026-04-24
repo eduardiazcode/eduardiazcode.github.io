@@ -229,3 +229,46 @@ header img:hover {
 a {
   transition: color 0.3s ease;
 }
+
+/* ── Skills con iconos ── */
+.skills-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #2e86de !important;
+  margin: 16px 0 8px 0;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  width: 72px;
+  text-align: center;
+}
+
+.skill-item img {
+  width: 36px;
+  height: 36px;
+  transition: transform 0.3s ease;
+}
+
+.skill-item img:hover {
+  transform: scale(1.2);
+}
+
+.skill-item span {
+  font-size: 0.68em;
+  color: #4a5568;
+  font-weight: 600;
+}

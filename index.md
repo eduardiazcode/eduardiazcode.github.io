@@ -2,6 +2,7 @@
 
 <h2>Portafolio — Data Analyst</h2>
 
+<!-- PROYECTOS -->
 <h3>📊 Análisis & Visualización de Datos</h3>
 
 <div class="card">
@@ -43,17 +44,80 @@
   </div>
 </div>
 
+<!-- HABILIDADES CON ICONOS -->
 <h3>🛠 Habilidades Técnicas</h3>
 
 <div class="card">
   <div class="card-body">
-    <p><strong>Lenguajes:</strong> Python · SQL</p>
-    <p><strong>Análisis de Datos:</strong> Pandas · NumPy · Google Sheets · Microsoft Excel</p>
-    <p><strong>Visualización:</strong> Matplotlib · Power BI</p>
-    <p><strong>Herramientas:</strong> Git · Linux · VS Code · LaTeX</p>
+
+    <p class="skills-label">Lenguajes</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/>
+        <span>Python</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="SQL"/>
+        <span>SQL / PostgreSQL</span>
+      </div>
+    </div>
+
+    <p class="skills-label">Análisis de Datos</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" alt="Pandas"/>
+        <span>Pandas</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" alt="NumPy"/>
+        <span>NumPy</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google Sheets"/>
+        <span>Google Sheets</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/windows8/windows8-original.svg" alt="Excel"/>
+        <span>Microsoft Excel</span>
+      </div>
+    </div>
+
+    <p class="skills-label">Visualización</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" alt="Matplotlib"/>
+        <span>Matplotlib</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI"/>
+        <span>Power BI</span>
+      </div>
+    </div>
+
+    <p class="skills-label">Herramientas</p>
+    <div class="skills-grid">
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/>
+        <span>Git</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux"/>
+        <span>Linux</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"/>
+        <span>VS Code</span>
+      </div>
+      <div class="skill-item">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/latex/latex-original.svg" alt="LaTeX"/>
+        <span>LaTeX</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
+<!-- CERTIFICACIONES -->
 <h3>🎓 Formación & Certificaciones</h3>
 
 <div class="card">
