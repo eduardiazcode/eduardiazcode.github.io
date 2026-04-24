@@ -1,13 +1,15 @@
-title: John Doe # your name (or website title) here
-logo: "/images/logo.png?raw=true" # your photo (or logo) here
-description: > # your text below (remove <br> elements if you don't need line breaks)
-  First description 
+title: Eduardo Ignacio Diaz Mollocondo
+logo: "/images/logo.png?raw=true"
+description: >
+  Bachiller en Ingeniería en Energías Renovables apasionado por el análisis de datos y la automatización. 
+  Especializado en transformar datos complejos en soluciones estratégicas mediante Python, SQL y Power BI.
   <br><br>
-  Second description 
+  Actualmente enfocado en la implementación de simulaciones Monte Carlo y análisis geoespacial aplicado al sector energético. 
+  Usuario entusiasta de tecnologías open-source y apasionado por el aprendizaje continuo.
   <br><br>
-  <a href="https://www.linkedin.com/in/example/">View My LinkedIn Profile</a> 
-  
+  <a href="https://www.linkedin.com/in/eduardiazcode/">Ver mi perfil de LinkedIn</a> 
+
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
 - jekyll-remote-theme
-google_analytics: UA-000000-0 # your Google Analytics tracking ID here
+google_analytics: GTM-WBWQLX4C
