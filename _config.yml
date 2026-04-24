@@ -1,17 +1,18 @@
-title: Eduardo Ignacio Diaz Mollocondo
+title: Eduardo Ignacio Díaz Mollocondo
 
 logo: "/images/logo.png?raw=true"
 
 description: >
-  Bachiller en Ingeniería en Energías Renovables con especialización en
-  <strong>Análisis de Datos</strong>. Apasionado por transformar datos complejos
-  en decisiones estratégicas mediante Python, SQL y Power BI.
+  Bachiller en Ingeniería de Energías Renovables con especialización autodidacta en
+  <strong>Análisis de Datos</strong>. Combino conocimiento técnico del sector
+  energético con Python, SQL y Power BI para generar insights accionables.
   <br><br>
-  Experiencia en análisis geoespacial, simulaciones Monte Carlo y dashboards
-  interactivos aplicados al sector energético y medioambiental.
+  📍 Juliaca, Puno — Perú<br>
+  🔍 Buscando primera posición formal como Data Analyst
   <br><br>
-  <a href="https://www.linkedin.com/in/eduardodiazdev" target="_blank">LinkedIn</a> &nbsp;|&nbsp;
-  <a href="/pdf/CV_Eduardo_Diaz.pdf">Descargar CV</a>
+  <a href="https://www.linkedin.com/in/eduardodiazdev/">LinkedIn</a> &nbsp;|&nbsp;
+  <a href="https://github.com/eduardiazcode">GitHub</a> &nbsp;|&nbsp;
+  <a href="mailto:eduardoignaciodm@gmail.com">Email</a>
 
 remote_theme: pages-themes/minimal@v0.2.0
 plugins:
