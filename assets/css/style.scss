@@ -57,3 +57,20 @@ hr {
   border-color: #2e86de;
   opacity: 0.3;
 }
+
+/* ── Arreglar sidebar ── */
+header {
+  padding: 20px 15px !important;
+  min-width: 220px;
+}
+
+header p {
+  font-size: 0.85em;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+/* Ocultar el texto "Hosted on GitHub Pages" */
+header p:last-of-type {
+  display: none;
+}
