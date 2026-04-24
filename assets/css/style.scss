@@ -74,3 +74,8 @@ header p {
 header p:last-of-type {
   display: none;
 }
+
+/* ── Ocultar footer de GitHub Pages en sidebar ── */
+header > p:last-child {
+  display: none !important;
+}
