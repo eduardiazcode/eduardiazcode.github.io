@@ -99,3 +99,77 @@ section a:hover {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ── Tarjetas de proyectos ── */
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(30, 42, 58, 0.15);
+}
+
+.card-header {
+  background: linear-gradient(135deg, #1e2a3a, #2e86de);
+  color: #ffffff !important;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.card-body {
+  padding: 16px 20px;
+}
+
+.card-subtitle {
+  color: #2e86de;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2e86de !important;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Tags de tecnologías ── */
+.tags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  background-color: #e8f1fb;
+  color: #1e2a3a;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.78em;
+  font-weight: 600;
+}
+
+/* ── Badge en desarrollo / tesis ── */
+.badge {
+  background-color: #2e86de;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 0.7em;
+  font-weight: normal;
+  margin-left: 8px;
+  vertical-align: middle;
+}
