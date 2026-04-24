@@ -15,15 +15,33 @@
 
 header {
   width: 280px !important;
-  min-height: 100vh !important;
+  height: 100vh !important;
   position: fixed !important;
   top: 0;
   left: 0;
   background-color: #1e2a3a !important;
   border-right: 3px solid #2e86de !important;
   padding: 30px 20px !important;
-  overflow-y: auto;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+  scrollbar-color: #2e86de #1e2a3a;
   animation: fadeInUp 0.8s ease both;
+  box-sizing: border-box !important;
+}
+
+/* Scrollbar estilizada para Chrome */
+header::-webkit-scrollbar {
+  width: 4px;
+}
+
+header::-webkit-scrollbar-track {
+  background: #1e2a3a;
+}
+
+header::-webkit-scrollbar-thumb {
+  background-color: #2e86de;
+  border-radius: 4px;
 }
 
 section {
