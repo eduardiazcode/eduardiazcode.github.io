@@ -7,18 +7,43 @@
 header {
   background-color: #1e2a3a;
   border-right: 3px solid #2e86de;
+  padding: 20px 15px !important;
+  animation: fadeInUp 0.8s ease both;
 }
 
-header h1 a {
+header h1 a,
+header h1 {
   color: #ffffff !important;
 }
 
-header p, header a {
-  color: #a8c6e8 !important;
+header p {
+  color: #ffffff !important;
+  font-size: 0.85em;
+  line-height: 1.6;
+}
+
+header a {
+  color: #7ec8f7 !important;
 }
 
 header a:hover {
-  color: #2e86de !important;
+  color: #ffffff !important;
+}
+
+/* Ocultar "Hosted on GitHub Pages" */
+header > p:last-child,
+header > p:nth-last-child(2) {
+  display: none !important;
+}
+
+/* Forzar todo texto del sidebar a blanco */
+header * {
+  color: #ffffff !important;
+}
+
+/* Excepto los links que van en azul claro */
+header a {
+  color: #7ec8f7 !important;
 }
 
 /* ── Fondo general ── */
