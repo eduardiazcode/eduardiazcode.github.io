@@ -1,6 +1,8 @@
 ---
 ---
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@400;600;700&display=swap');
+
 @import "{{ site.theme }}";
 
 /* ── Layout full width ── */
@@ -35,8 +37,55 @@ footer {
   display: none !important;
 }
 
-/* ── Sidebar texto ── */
+/* ── Tipografía moderna ── */
+body {
+  background-color: #f0f4f8;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #2d3748;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #1e2a3a;
+  border-bottom: 2px solid #2e86de;
+  padding-bottom: 6px;
+  letter-spacing: -0.3px;
+}
+
+h2 { font-size: 1.6em; }
+
+h3 {
+  font-size: 1.2em;
+  margin-top: 2rem;
+}
+
+p {
+  color: #4a5568;
+  margin-bottom: 0.8rem;
+}
+
+/* ── Sidebar ── */
 header * {
+  color: #ffffff !important;
+}
+
+header h1,
+header h1 a {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3em;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #ffffff !important;
+}
+
+header p {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82em;
+  line-height: 1.65;
   color: #ffffff !important;
 }
 
@@ -69,21 +118,6 @@ header img:hover {
   box-shadow: 0 8px 20px rgba(46, 134, 222, 0.5);
 }
 
-/* ── Fondo general ── */
-body {
-  background-color: #f0f4f8;
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-/* ── Títulos ── */
-h1, h2, h3 {
-  color: #1e2a3a;
-  border-bottom: 2px solid #2e86de;
-  padding-bottom: 6px;
-}
-
 /* ── Links contenido ── */
 section a {
   color: #2e86de !important;
@@ -94,13 +128,7 @@ section a:hover {
   color: #1e2a3a !important;
 }
 
-/* ── Animaciones ── */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ── Tarjetas de proyectos ── */
+/* ── Tarjetas ── */
 .card {
   background: #ffffff;
   border-radius: 10px;
@@ -119,12 +147,19 @@ section a:hover {
   background: linear-gradient(135deg, #1e2a3a, #2e86de);
   color: #ffffff !important;
   padding: 12px 20px;
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.95em;
+  letter-spacing: 0.2px;
 }
 
 .card-body {
   padding: 16px 20px;
+}
+
+.card-body p {
+  font-size: 0.88em;
+  line-height: 1.7;
 }
 
 .card-subtitle {
@@ -145,7 +180,7 @@ section a:hover {
   text-decoration: underline;
 }
 
-/* ── Tags de tecnologías ── */
+/* ── Tags ── */
 .tags {
   margin-top: 10px;
   display: flex;
@@ -158,11 +193,13 @@ section a:hover {
   color: #1e2a3a;
   padding: 3px 10px;
   border-radius: 20px;
-  font-size: 0.78em;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72em;
   font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
-/* ── Badge en desarrollo / tesis ── */
+/* ── Badge ── */
 .badge {
   background-color: #2e86de;
   color: white;
@@ -172,4 +209,23 @@ section a:hover {
   font-weight: normal;
   margin-left: 8px;
   vertical-align: middle;
+}
+
+/* ── Animaciones ── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+section h2, section h3 {
+  animation: fadeInUp 0.6s ease both;
+}
+
+header img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(46, 134, 222, 0.4);
+}
+
+a {
+  transition: color 0.3s ease;
 }
