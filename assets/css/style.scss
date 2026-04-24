@@ -3,23 +3,41 @@
 
 @import "{{ site.theme }}";
 
-/* ── Sidebar ── */
+/* ── Layout full width ── */
+.wrapper {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  display: flex !important;
+}
+
 header {
-  background-color: #1e2a3a;
-  border-right: 3px solid #2e86de;
-  padding: 20px 15px !important;
+  width: 280px !important;
+  min-height: 100vh !important;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  background-color: #1e2a3a !important;
+  border-right: 3px solid #2e86de !important;
+  padding: 30px 20px !important;
+  overflow-y: auto;
   animation: fadeInUp 0.8s ease both;
 }
 
-header h1 a,
-header h1 {
-  color: #ffffff !important;
+section {
+  margin-left: 300px !important;
+  width: calc(100% - 320px) !important;
+  padding: 40px !important;
+  animation: fadeInUp 1s ease 0.3s both;
 }
 
-header p {
+footer {
+  display: none !important;
+}
+
+/* ── Sidebar texto ── */
+header * {
   color: #ffffff !important;
-  font-size: 0.85em;
-  line-height: 1.6;
 }
 
 header a {
@@ -28,36 +46,35 @@ header a {
 
 header a:hover {
   color: #ffffff !important;
+  text-decoration: underline;
 }
 
-/* Ocultar "Hosted on GitHub Pages" */
-header > p:last-child,
-header > p:nth-last-child(2) {
+/* Ocultar "Alojado en GitHub Pages" */
+header > p:last-child {
   display: none !important;
 }
 
-/* Forzar todo texto del sidebar a blanco */
-header * {
-  color: #ffffff !important;
+/* ── Foto ── */
+header img {
+  border-radius: 50%;
+  width: 100%;
+  max-width: 200px;
+  display: block;
+  margin: 15px auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Excepto los links que van en azul claro */
-header a {
-  color: #7ec8f7 !important;
+header img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(46, 134, 222, 0.5);
 }
 
 /* ── Fondo general ── */
 body {
   background-color: #f0f4f8;
   font-family: 'Segoe UI', sans-serif;
-}
-
-/* ── Contenido principal ── */
-section {
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 2rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  margin: 0;
+  padding: 0;
 }
 
 /* ── Títulos ── */
@@ -67,83 +84,18 @@ h1, h2, h3 {
   padding-bottom: 6px;
 }
 
-/* ── Links ── */
-a {
-  color: #2e86de;
+/* ── Links contenido ── */
+section a {
+  color: #2e86de !important;
+  transition: color 0.3s ease;
 }
 
-a:hover {
-  color: #1e2a3a;
-  text-decoration: underline;
+section a:hover {
+  color: #1e2a3a !important;
 }
 
-/* ── Separadores ── */
-hr {
-  border-color: #2e86de;
-  opacity: 0.3;
-}
-
-/* ── Arreglar sidebar ── */
-header {
-  padding: 20px 15px !important;
-  min-width: 220px;
-}
-
-header p {
-  font-size: 0.85em;
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-
-/* Ocultar el texto "Hosted on GitHub Pages" */
-header p:last-of-type {
-  display: none;
-}
-
-/* ── Ocultar footer de GitHub Pages en sidebar ── */
-header > p:last-child {
-  display: none !important;
-}
-
-/* ── Animación fade in al cargar ── */
+/* ── Animaciones ── */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-header {
-  animation: fadeInUp 0.8s ease both;
-}
-
-section {
-  animation: fadeInUp 1s ease 0.3s both;
-}
-
-section h2, section h3 {
-  animation: fadeInUp 0.6s ease both;
-}
-
-a {
-  transition: color 0.3s ease, letter-spacing 0.2s ease;
-}
-
-a:hover {
-  letter-spacing: 0.3px;
-}
-
-/* Foto con efecto suave */
-header img {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border-radius: 50%;
-}
-
-header img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(46, 134, 222, 0.4);
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
