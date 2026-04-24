@@ -1,0 +1,59 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+/* ── Sidebar ── */
+header {
+  background-color: #1e2a3a;
+  border-right: 3px solid #2e86de;
+}
+
+header h1 a {
+  color: #ffffff !important;
+}
+
+header p, header a {
+  color: #a8c6e8 !important;
+}
+
+header a:hover {
+  color: #2e86de !important;
+}
+
+/* ── Fondo general ── */
+body {
+  background-color: #f0f4f8;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ── Contenido principal ── */
+section {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* ── Títulos ── */
+h1, h2, h3 {
+  color: #1e2a3a;
+  border-bottom: 2px solid #2e86de;
+  padding-bottom: 6px;
+}
+
+/* ── Links ── */
+a {
+  color: #2e86de;
+}
+
+a:hover {
+  color: #1e2a3a;
+  text-decoration: underline;
+}
+
+/* ── Separadores ── */
+hr {
+  border-color: #2e86de;
+  opacity: 0.3;
+}
