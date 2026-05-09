@@ -19,6 +19,22 @@
 </div>
 
 <div class="card">
+  <div class="card-header">⚡ Análisis de Suministros Eléctricos — Puno</div>
+  <div class="card-body">
+    <p class="card-subtitle">Plataforma Nacional de Datos Abiertos del Perú</p>
+    <img src="images/dashboard_energia_puno.png" alt="Dashboard Energía Puno" style="width:100%; border-radius:8px; margin-bottom:12px;"/>
+    <p>Análisis exploratorio de 357,000 registros reales de suministros eléctricos del departamento de Puno (Marzo 2026). Identificación de patrones de consumo y facturación a nivel provincial y distrital, diferenciando clientes residenciales e industriales.</p>
+    <div class="tags">
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">SQL</span>
+      <span class="tag">ETL</span>
+    </div>
+    <a href="https://github.com/eduardiazcode/Analisis-Energia-Puno" class="card-link" target="_blank">Ver repositorio →</a>
+  </div>
+</div>
+
+<div class="card">
   <div class="card-header">☀️ Solar Energy Calculator <span class="badge">En desarrollo</span></div>
   <div class="card-body">
     <p>Herramienta en Python para calcular parámetros de sistemas solares fotovoltaicos: producción energética estimada, proyección de ahorros y dimensionamiento de paneles.</p>
