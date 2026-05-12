@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eduardo Díaz — Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #1a1a24;
+      --border: #2a2a3a;
+      --accent: #00e5a0;
+      --accent2: #4f8ef7;
+      --accent3: #f7c04f;
+      --text: #e8e8f0;
+      --muted: #7070a0;
+      --font-display: 'Syne', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NOISE OVERLAY */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* GRID BG */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,160,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,160,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.2rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    /* MAIN LAYOUT */
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section { padding: 5rem 0; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 6rem;
+    }
+
+    .hero-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+    }
+
+    .hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.4s forwards;
+    }
+
+    .hero-name span {
+      display: block;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.6s forwards;
+    }
+
+    .hero-meta {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.7s forwards;
+    }
+
+    .hero-meta span { color: var(--accent); margin-right: 1.5rem; }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.8s forwards;
+    }
+
+    .btn {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      padding: 0.7rem 1.4rem;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #000;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: #00ffb3;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,229,160,0.3);
+    }
+
+    .btn-ghost {
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* SECTION HEADER */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .skill-group:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .skill-group-title {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .skill-tag {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text);
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+    }
+
+    /* PROJECTS */
+    .projects-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .project-card:hover::before { opacity: 1; }
+
+    .project-card.featured::before { opacity: 1; background: var(--accent2); }
+    .project-card.featured { border-color: rgba(79,142,247,0.3); }
+
+    .project-status {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+
+    .status-done { background: rgba(0,229,160,0.1); color: var(--accent); border: 1px solid rgba(0,229,160,0.2); }
+    .status-wip { background: rgba(247,192,79,0.1); color: var(--accent3); border: 1px solid rgba(247,192,79,0.2); }
+    .status-thesis { background: rgba(79,142,247,0.1); color: var(--accent2); border: 1px solid rgba(79,142,247,0.2); }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-source {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-desc {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tech-tag {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      background: rgba(0,229,160,0.08);
+      border: 1px solid rgba(0,229,160,0.15);
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+    }
+
+    .tech-tag.blue {
+      color: var(--accent2);
+      background: rgba(79,142,247,0.08);
+      border-color: rgba(79,142,247,0.15);
+    }
+
+    .project-link {
+      align-self: start;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .project-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* EDUCATION */
+    .edu-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .edu-card:hover { border-color: var(--accent); }
+
+    .edu-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-org {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .edu-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .cert-item {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.9rem 1.2rem;
+      transition: border-color 0.2s;
+    }
+
+    .cert-item:hover { border-color: var(--muted); }
+
+    .cert-name {
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-meta {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+
+    /* CONTACT */
+    #contact {
+      text-align: center;
+      padding-bottom: 6rem;
+    }
+
+    .contact-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .contact-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    footer span { color: var(--accent); }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* RESPONSIVE */
+    @media (max-width: 640px) {
+      nav { padding: 1rem; }
+      .nav-links { gap: 1rem; }
+      .project-card { grid-template-columns: 1fr; }
+      .project-link { align-self: start; }
+      .edu-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">eduardo.díaz</div>
+    <ul class="nav-links">
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Proyectos</a></li>
+      <li><a href="#education">Formación</a></li>
+      <li><a href="#contact">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="hero">
+      <p class="hero-tag">// Data Analyst & Renewable Energy Engineer</p>
+      <h1 class="hero-name">
+        Eduardo<br/>
+        <span>Díaz.</span>
+      </h1>
+      <p class="hero-bio">
+        Bachiller en Ingeniería de Energías Renovables con especialización autodidacta en análisis de datos. Combino conocimiento técnico del sector energético con Python, SQL y Power BI para generar insights accionables.
+      </p>
+      <div class="hero-meta">
+        <span>📍 Juliaca, Puno — Perú</span>
+        <span>🔍 Buscando primera posición formal como Data Analyst</span>
+      </div>
+      <div class="hero-links">
+        <a href="https://www.linkedin.com/in/eduardodiazdev/" class="btn btn-primary" target="_blank">LinkedIn →</a>
+        <a href="https://github.com/eduardiazcode" class="btn btn-ghost" target="_blank">GitHub</a>
+        <a href="mailto:eduardoignaciodm@gmail.com" class="btn btn-ghost">Email</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-header fade-in">
+        <span class="section-number">01</span>
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-group fade-in">
+          <div class="skill-group-title">Lenguajes</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-group-title">Análisis de Datos</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Pandas</span>
+            <span class="skill-tag">NumPy</span>
+            <span class="skill-tag">Google Sheets</span>
+            <span class="skill-tag">Excel</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-group-title">Visualización</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Power BI</span>
+            <span class="skill-tag">Matplotlib</span>
+          </div>
+        </div>
+        <div class="skill-group fade-in">
+          <div class="skill-group-title">Herramientas</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Linux</span>
+            <span class="skill-tag">VS Code</span>
+            <span class="skill-tag">LaTeX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header fade-in">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Proyectos</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-list">
+
+        <div class="project-card featured fade-in">
+          <div>
+            <span class="project-status status-done">Completado</span>
+            <div class="project-name">Análisis de Suministros Eléctricos — Puno</div>
+            <div class="project-source">Plataforma Nacional de Datos Abiertos del Perú</div>
+            <p class="project-desc">Análisis exploratorio de 357,000 registros reales de suministros eléctricos del departamento de Puno (Marzo 2026). Identificación de patrones de consumo y facturación a nivel provincial y distrital, diferenciando clientes residenciales e industriales.</p>
+            <div class="project-tech">
+              <span class="tech-tag blue">PostgreSQL</span>
+              <span class="tech-tag blue">Power BI</span>
+              <span class="tech-tag blue">SQL</span>
+              <span class="tech-tag blue">ETL</span>
+            </div>
+          </div>
+          <a href="https://github.com/eduardiazcode/Analisis-Energia-Puno" class="project-link" target="_blank">Ver repo →</a>
+        </div>
+
+        <div class="project-card fade-in">
+          <div>
+            <span class="project-status status-done">Completado</span>
+            <div class="project-name">Sistema de Gestión Financiera</div>
+            <div class="project-source">Cooperativa Santa Lucía</div>
+            <p class="project-desc">Sistema completo de gestión financiera en Google Sheets para una cooperativa de ahorro y crédito local. Automatiza el seguimiento de ingresos, egresos y cronogramas de pago con reportes financieros integrados.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Google Sheets</span>
+              <span class="tech-tag">Fórmulas avanzadas</span>
+              <span class="tech-tag">Automatización</span>
+            </div>
+          </div>
+          <div></div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div>
+            <span class="project-status status-wip">En desarrollo</span>
+            <div class="project-name">Solar Energy Calculator</div>
+            <div class="project-source">Proyecto personal</div>
+            <p class="project-desc">Herramienta en Python para calcular parámetros de sistemas solares fotovoltaicos: producción energética estimada, proyección de ahorros y dimensionamiento de paneles.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Matplotlib</span>
+            </div>
+          </div>
+          <a href="https://github.com/eduardiazcode/Calculadora_Solar" class="project-link" target="_blank">Ver repo →</a>
+        </div>
+
+        <div class="project-card fade-in">
+          <div>
+            <span class="project-status status-thesis">Tesis</span>
+            <div class="project-name">Evaluación Técnico-Económica de Calentadores Solares</div>
+            <div class="project-source">Universidad Nacional de Juliaca (UNAJ)</div>
+            <p class="project-desc">Investigación de grado que integra análisis geoespacial y simulación Monte Carlo para evaluar la viabilidad de calentadores solares en la región de Puno, con indicadores económicos TIR y VAN.</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Monte Carlo</span>
+              <span class="tech-tag">Análisis Geoespacial</span>
+              <span class="tech-tag">LaTeX</span>
+            </div>
+          </div>
+          <div></div>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-header fade-in">
+        <span class="section-number">03</span>
+        <h2 class="section-title">Formación & Certificaciones</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-list">
+        <div class="edu-card fade-in">
+          <div>
+            <div class="edu-title">Bachiller en Ingeniería de Energías Renovables</div>
+            <div class="edu-org">Universidad Nacional de Juliaca — UNAJ</div>
+          </div>
+          <div class="edu-date">2024</div>
+        </div>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-item fade-in">
+          <div class="cert-name">GitHub for Developers</div>
+          <div class="cert-meta">EDteam · dic. 2025</div>
+        </div>
+        <div class="cert-item fade-in">
+          <div class="cert-name">Git</div>
+          <div class="cert-meta">EDteam · dic. 2025</div>
+        </div>
+        <div class="cert-item fade-in">
+          <div class="cert-name">Estadística</div>
+          <div class="cert-meta">EDteam · dic. 2025</div>
+        </div>
+        <div class="cert-item fade-in">
+          <div class="cert-name">Introducción a la Terminal</div>
+          <div class="cert-meta">EDteam · nov. 2025</div>
+        </div>
+        <div class="cert-item fade-in">
+          <div class="cert-name">Microsoft Excel</div>
+          <div class="cert-meta">EDteam · nov. 2025</div>
+        </div>
+        <div class="cert-item fade-in">
+          <div class="cert-name">Power BI</div>
+          <div class="cert-meta">EDteam · nov. 2025</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="contact-title fade-in">¿Trabajamos juntos?</h2>
+      <p class="contact-sub fade-in">Estoy buscando mi primera posición formal como Data Analyst. Escríbeme.</p>
+      <div class="contact-links fade-in">
+        <a href="mailto:eduardoignaciodm@gmail.com" class="btn btn-primary">Enviar email →</a>
+        <a href="https://www.linkedin.com/in/eduardodiazdev/" class="btn btn-ghost" target="_blank">LinkedIn</a>
+        <a href="https://github.com/eduardiazcode" class="btn btn-ghost" target="_blank">GitHub</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Hecho con HTML/CSS puro · Eduardo Díaz · <span>Juliaca, Puno — Perú</span>
+  </footer>
+
+  <script>
+    // Intersection Observer para animaciones al hacer scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
