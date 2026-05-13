@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+
   <title>Eduardo Ignacio Díaz Mollocondo — Data Analyst | Energías Renovables</title>
-  
+
   <!-- SEO -->
   <meta name="description" content="Data Analyst especializado en sector energético. Python, SQL, Power BI. Proyectos de análisis de datos en Puno, Perú. Bachiller en Energías Renovables.">
   <meta name="keywords" content="data analyst, python, sql, power bi, energías renovables, puno, perú, eduardo díaz, business intelligence">
   <meta name="author" content="Eduardo Ignacio Díaz Mollocondo">
   <meta name="robots" content="index, follow">
-  
+
   <!-- Open Graph -->
   <meta property="og:title" content="Eduardo Díaz | Data Analyst & Energy Engineer">
   <meta property="og:description" content="Transformando datos del sector energético en decisiones estratégicas con Python, SQL y Power BI.">
@@ -19,58 +19,62 @@
   <meta property="og:url" content="https://eduardiazcode.github.io/">
   <meta property="og:image" content="https://eduardiazcode.github.io/images/og-preview.png">
   <meta property="og:locale" content="es_PE">
-  
+
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Eduardo Díaz | Data Analyst">
   <meta name="twitter:description" content="Transformando datos del sector energético en decisiones estratégicas.">
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/logo.png">
-  
+
   <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-  
+
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
+  <!-- Preload critical image -->
+  <link rel="preload" href="images/logo.png" as="image">
+
   <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
 
+  <!-- JSON-LD Schema -->
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Eduardo Ignacio Díaz Mollocondo",
-  "jobTitle": "Data Analyst | Ingeniero en Energías Renovables",
-  "url": "https://eduardiazcode.github.io/",
-  "sameAs": [
-    "https://www.linkedin.com/in/eduardodiazdev/",
-    "https://github.com/eduardiazcode"
-  ],
-  "knowsAbout": ["Python", "SQL", "Power BI", "Análisis de Datos", "Energías Renovables"],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Juliaca",
-    "addressRegion": "Puno",
-    "addressCountry": "PE"
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Eduardo Ignacio Díaz Mollocondo",
+    "jobTitle": "Data Analyst | Ingeniero en Energías Renovables",
+    "url": "https://eduardiazcode.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/eduardodiazdev/",
+      "https://github.com/eduardiazcode"
+    ],
+    "knowsAbout": ["Python", "SQL", "Power BI", "Análisis de Datos", "Energías Renovables"],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Juliaca",
+      "addressRegion": "Puno",
+      "addressCountry": "PE"
+    }
   }
-}
-
-<!-- Preload fonts critical -->
-<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-
-<!-- Preload critical image -->
-<link rel="preload" href="images/logo.png" as="image">
-</script>
+  </script>
 </head>
 
-<button class="back-to-top" id="backToTop" aria-label="Volver arriba">
-  <i class="fas fa-arrow-up"></i>
-</button>
-
 <body>
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <nav role="navigation" aria-label="Navegación principal">
     <div class="nav-logo">eduardo.díaz</div>
@@ -84,6 +88,7 @@
 
   <main id="main-content">
 
+    <!-- ── HERO ── -->
     <section id="hero">
       <div id="dotsBg" class="dots-bg"></div>
 
@@ -117,7 +122,7 @@
         <div class="photo-frame">
           <div class="photo-ring"></div>
           <div class="photo-inner">
-            <img src="images/logo.png" alt="Eduardo Ignacio Díaz Mollocondo - Data Analyst" loading="lazy" width="210" height="210" />
+            <img src="images/logo.png" alt="Eduardo Ignacio Díaz Mollocondo - Data Analyst" loading="eager" width="210" height="210" />
           </div>
         </div>
       </div>
@@ -125,6 +130,7 @@
 
     <div class="divider"></div>
 
+    <!-- ── SKILLS ── -->
     <section id="skills">
       <div class="section-header fade-in">
         <span class="section-number">01</span>
@@ -132,6 +138,7 @@
         <div class="section-line"></div>
       </div>
       <div class="skills-grid">
+
         <div class="skill-group fade-in">
           <div class="skill-group-title">
             <i class="fas fa-code"></i> Lenguajes
@@ -148,41 +155,41 @@
             </span>
           </div>
         </div>
-        
+
         <div class="skill-group fade-in">
           <div class="skill-group-title">
             <i class="fas fa-chart-line"></i> Análisis de Datos
           </div>
           <div class="skill-tags">
             <span class="skill-tag">
-              <i class="fas fa-table"></i> Pandas
+              <i class="devicon-pandas-plain colored"></i> Pandas
             </span>
             <span class="skill-tag">
-              <i class="fas fa-calculator"></i> NumPy
+              <i class="devicon-numpy-plain colored"></i> NumPy
             </span>
             <span class="skill-tag">
               <i class="devicon-google-plain colored"></i> Sheets
             </span>
             <span class="skill-tag">
-              <i class="devicon-excel-plain colored"></i> Excel
+              <i class="devicon-microsoftsqlserver-plain colored"></i> Excel
             </span>
           </div>
         </div>
-        
+
         <div class="skill-group fade-in">
           <div class="skill-group-title">
             <i class="fas fa-chart-pie"></i> Visualización
           </div>
           <div class="skill-tags">
             <span class="skill-tag">
-              <i class="devicon-powerbi-plain colored"></i> Power BI
+              <i class="devicon-matplotlib-plain colored"></i> Matplotlib
             </span>
             <span class="skill-tag">
-              <i class="fas fa-chart-area"></i> Matplotlib
+              <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="16" height="16" alt="Power BI" style="display:inline;vertical-align:middle;"> Power BI
             </span>
           </div>
         </div>
-        
+
         <div class="skill-group fade-in">
           <div class="skill-group-title">
             <i class="fas fa-tools"></i> Herramientas
@@ -198,15 +205,17 @@
               <i class="devicon-vscode-plain colored"></i> VS Code
             </span>
             <span class="skill-tag">
-              <i class="fas fa-file-alt"></i> LaTeX
+              <i class="devicon-latex-plain colored"></i> LaTeX
             </span>
           </div>
         </div>
+
       </div>
     </section>
 
     <div class="divider"></div>
 
+    <!-- ── PROJECTS ── -->
     <section id="projects">
       <div class="section-header fade-in">
         <span class="section-number">02</span>
@@ -217,9 +226,9 @@
 
         <div class="project-card featured fade-in">
           <div class="project-image-wrap">
-            <img src="images/dashboard_energia_puno.png" 
-                 alt="Dashboard de Análisis de Energía en Puno - Power BI" 
-                 class="project-image" 
+            <img src="images/dashboard_energia_puno.png"
+                 alt="Dashboard de Análisis de Energía en Puno - Power BI"
+                 class="project-image"
                  loading="lazy"
                  width="800"
                  height="240" />
@@ -235,34 +244,20 @@
                 Análisis exploratorio de <strong class="accent-text">357,000 registros</strong> reales de suministros eléctricos del departamento de Puno (Marzo 2026). Identificación de patrones de consumo y facturación a nivel provincial y distrital, diferenciando clientes residenciales e industriales.
               </p>
               <div class="project-metrics">
-                <span class="metric-tag">
-                  <i class="fas fa-database"></i> 357K+ filas
-                </span>
-                <span class="metric-tag blue">
-                  <i class="fas fa-clock"></i> 5 años de datos
-                </span>
-                <span class="metric-tag">
-                  <i class="fas fa-users"></i> 13 provincias
-                </span>
+                <span class="metric-tag"><i class="fas fa-database"></i> 357K+ filas</span>
+                <span class="metric-tag blue"><i class="fas fa-clock"></i> 5 años de datos</span>
+                <span class="metric-tag"><i class="fas fa-users"></i> 13 provincias</span>
               </div>
               <div class="project-tech">
-                <span class="tech-tag blue">
-                  <i class="devicon-postgresql-plain"></i> PostgreSQL
-                </span>
-                <span class="tech-tag blue">
-                  <i class="devicon-powerbi-plain"></i> Power BI
-                </span>
-                <span class="tech-tag blue">
-                  <i class="fas fa-database"></i> SQL
-                </span>
-                <span class="tech-tag blue">
-                  <i class="fas fa-sync-alt"></i> ETL
-                </span>
+                <span class="tech-tag blue"><i class="devicon-postgresql-plain"></i> PostgreSQL</span>
+                <span class="tech-tag blue"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="12" height="12" alt="Power BI" style="display:inline;vertical-align:middle;"> Power BI</span>
+                <span class="tech-tag blue"><i class="fas fa-database"></i> SQL</span>
+                <span class="tech-tag blue"><i class="fas fa-sync-alt"></i> ETL</span>
               </div>
             </div>
-            <a href="https://github.com/eduardiazcode/Analisis-Energia-Puno" 
-               class="project-link" 
-               target="_blank" 
+            <a href="https://github.com/eduardiazcode/Analisis-Energia-Puno"
+               class="project-link"
+               target="_blank"
                rel="noopener noreferrer">
               <i class="fab fa-github"></i> Ver repo
             </a>
@@ -286,23 +281,13 @@
                 Sistema completo de gestión financiera en Google Sheets para una cooperativa de ahorro y crédito local. Automatiza el seguimiento de ingresos, egresos y cronogramas de pago con reportes financieros integrados.
               </p>
               <div class="project-metrics">
-                <span class="metric-tag">
-                  <i class="fas fa-percentage"></i> 70% más rápido
-                </span>
-                <span class="metric-tag blue">
-                  <i class="fas fa-robot"></i> Automatizado
-                </span>
+                <span class="metric-tag"><i class="fas fa-percentage"></i> 70% más rápido</span>
+                <span class="metric-tag blue"><i class="fas fa-robot"></i> Automatizado</span>
               </div>
               <div class="project-tech">
-                <span class="tech-tag">
-                  <i class="devicon-google-plain"></i> Google Sheets
-                </span>
-                <span class="tech-tag">
-                  <i class="fas fa-function"></i> Fórmulas avanzadas
-                </span>
-                <span class="tech-tag">
-                  <i class="fas fa-robot"></i> Automatización
-                </span>
+                <span class="tech-tag"><i class="devicon-google-plain colored"></i> Google Sheets</span>
+                <span class="tech-tag"><i class="fas fa-superscript"></i> Fórmulas avanzadas</span>
+                <span class="tech-tag"><i class="fas fa-robot"></i> Automatización</span>
               </div>
             </div>
             <div></div>
@@ -326,20 +311,14 @@
                 Herramienta en Python para calcular parámetros de sistemas solares fotovoltaicos: producción energética estimada, proyección de ahorros y dimensionamiento de paneles.
               </p>
               <div class="project-tech">
-                <span class="tech-tag">
-                  <i class="devicon-python-plain"></i> Python
-                </span>
-                <span class="tech-tag">
-                  <i class="fas fa-table"></i> Pandas
-                </span>
-                <span class="tech-tag">
-                  <i class="fas fa-chart-area"></i> Matplotlib
-                </span>
+                <span class="tech-tag"><i class="devicon-python-plain colored"></i> Python</span>
+                <span class="tech-tag"><i class="devicon-pandas-plain colored"></i> Pandas</span>
+                <span class="tech-tag"><i class="devicon-matplotlib-plain colored"></i> Matplotlib</span>
               </div>
             </div>
-            <a href="https://github.com/eduardiazcode/Calculadora_Solar" 
-               class="project-link" 
-               target="_blank" 
+            <a href="https://github.com/eduardiazcode/Calculadora_Solar"
+               class="project-link"
+               target="_blank"
                rel="noopener noreferrer">
               <i class="fab fa-github"></i> Ver repo
             </a>
@@ -357,32 +336,20 @@
               <span class="project-status status-thesis">
                 <i class="fas fa-certificate"></i> Tesis
               </span>
-              <div class="project-name">Evaluación del potencial técnico - económico de calentadores solares en el sector residencial de Juliaca mediante datos geoespaciales y simulación Monte Carlo </div>
+              <div class="project-name">Evaluación del potencial técnico - económico de calentadores solares en el sector residencial de Juliaca mediante datos geoespaciales y simulación Monte Carlo</div>
               <div class="project-source">Universidad Nacional de Juliaca — UNAJ</div>
               <p class="project-desc">
                 Investigación de grado que integra análisis geoespacial y simulación Monte Carlo para evaluar la viabilidad de calentadores solares en la región de Puno, con indicadores económicos TIR y VAN.
               </p>
               <div class="project-metrics">
-                <span class="metric-tag blue">
-                  <i class="fas fa-map-marked-alt"></i> Puno, Perú
-                </span>
-                <span class="metric-tag">
-                  <i class="fas fa-check"></i> Aprobado
-                </span>
+                <span class="metric-tag blue"><i class="fas fa-map-marked-alt"></i> Puno, Perú</span>
+                <span class="metric-tag"><i class="fas fa-check"></i> Aprobado</span>
               </div>
               <div class="project-tech">
-                <span class="tech-tag">
-                  <i class="devicon-python-plain"></i> Python
-                </span>
-                <span class="tech-tag">
-                  <i class="fas fa-random"></i> Monte Carlo
-                </span>
-                <span class="tech-tag">
-                  <i class="fas fa-globe-americas"></i> Análisis Geoespacial
-                </span>
-                <span class="tech-tag">
-                  <i class="fas fa-file-alt"></i> LaTeX
-                </span>
+                <span class="tech-tag"><i class="devicon-python-plain colored"></i> Python</span>
+                <span class="tech-tag"><i class="fas fa-random"></i> Monte Carlo</span>
+                <span class="tech-tag"><i class="fas fa-globe-americas"></i> Análisis Geoespacial</span>
+                <span class="tech-tag"><i class="devicon-latex-plain colored"></i> LaTeX</span>
               </div>
             </div>
             <div></div>
@@ -394,6 +361,7 @@
 
     <div class="divider"></div>
 
+    <!-- ── EDUCATION ── -->
     <section id="education">
       <div class="section-header fade-in">
         <span class="section-number">03</span>
@@ -411,45 +379,35 @@
       </div>
       <div class="cert-grid">
         <div class="cert-item fade-in">
-          <div class="cert-icon">
-            <i class="fab fa-github"></i>
-          </div>
+          <div class="cert-icon"><i class="fab fa-github"></i></div>
           <div class="cert-content">
             <div class="cert-name">GitHub for Developers</div>
             <div class="cert-meta">EDteam · dic. 2025</div>
           </div>
         </div>
         <div class="cert-item fade-in">
-          <div class="cert-icon">
-            <i class="fas fa-code-branch"></i>
-          </div>
+          <div class="cert-icon"><i class="fas fa-code-branch"></i></div>
           <div class="cert-content">
             <div class="cert-name">Git</div>
             <div class="cert-meta">EDteam · dic. 2025</div>
           </div>
         </div>
         <div class="cert-item fade-in">
-          <div class="cert-icon">
-            <i class="fas fa-chart-bar"></i>
-          </div>
+          <div class="cert-icon"><i class="fas fa-chart-bar"></i></div>
           <div class="cert-content">
             <div class="cert-name">Estadística</div>
             <div class="cert-meta">EDteam · dic. 2025</div>
           </div>
         </div>
         <div class="cert-item fade-in">
-          <div class="cert-icon">
-            <i class="fas fa-terminal"></i>
-          </div>
+          <div class="cert-icon"><i class="fas fa-terminal"></i></div>
           <div class="cert-content">
             <div class="cert-name">Introducción a la Terminal</div>
             <div class="cert-meta">EDteam · nov. 2025</div>
           </div>
         </div>
         <div class="cert-item fade-in">
-          <div class="cert-icon">
-            <i class="devicon-excel-plain"></i>
-          </div>
+          <div class="cert-icon"><i class="devicon-microsoftsqlserver-plain colored"></i></div>
           <div class="cert-content">
             <div class="cert-name">Microsoft Excel</div>
             <div class="cert-meta">EDteam · nov. 2025</div>
@@ -457,7 +415,7 @@
         </div>
         <div class="cert-item fade-in">
           <div class="cert-icon">
-            <i class="devicon-powerbi-plain"></i>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" width="20" height="20" alt="Power BI">
           </div>
           <div class="cert-content">
             <div class="cert-name">Power BI</div>
@@ -469,44 +427,48 @@
 
     <div class="divider"></div>
 
+    <!-- ── CONTACT ── -->
     <section id="contact">
-  <h2 class="contact-title fade-in">¿Trabajamos juntos?</h2>
-  <p class="contact-sub fade-in">
-    Estoy buscando mi primera posición formal como Data Analyst. 
-    Escríbeme o descarga mi CV para más detalles.
-  </p>
-  
-  <form action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="contact-form fade-in">
-    <div class="form-grid">
-      <input type="text" name="name" placeholder="Tu nombre" required aria-label="Nombre">
-      <input type="email" name="email" placeholder="Tu email" required aria-label="Email">
-      <input type="text" name="subject" placeholder="Asunto" aria-label="Asunto">
-      <textarea name="message" placeholder="Tu mensaje..." rows="5" required aria-label="Mensaje"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary" style="margin-top: 1rem; border: none; font-family: inherit;">
-      <i class="fas fa-paper-plane"></i> Enviar mensaje
-    </button>
-  </form>
+      <h2 class="contact-title fade-in">¿Trabajamos juntos?</h2>
+      <p class="contact-sub fade-in">
+        Estoy buscando mi primera posición formal como Data Analyst.
+        Escríbeme o descarga mi CV para más detalles.
+      </p>
 
-  <div class="contact-links fade-in" style="margin-top: 2rem;">
-    <a href="assets/CV_EduardoDiaz.pdf" class="btn btn-ghost" download>
-      <i class="fas fa-download"></i> Descargar CV
-    </a>
-    <a href="https://www.linkedin.com/in/eduardodiazdev/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
-  </div>
-</section>
+      <!-- 
+        PENDIENTE: Regístrate en https://formspree.io, crea un formulario
+        y reemplaza TU_ID_AQUI con tu ID real (ej: xpwzabcd)
+      -->
+      <form action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="contact-form fade-in">
+        <div class="form-grid">
+          <input type="text" name="name" placeholder="Tu nombre" required aria-label="Nombre">
+          <input type="email" name="email" placeholder="Tu email" required aria-label="Email">
+          <input type="text" name="subject" placeholder="Asunto" aria-label="Asunto">
+          <textarea name="message" placeholder="Tu mensaje..." rows="5" required aria-label="Mensaje"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem; border: none; font-family: inherit;">
+          <i class="fas fa-paper-plane"></i> Enviar mensaje
+        </button>
+      </form>
+
+      <div class="contact-links fade-in" style="margin-top: 2rem;">
+        <a href="assets/CV_EduardoDiaz.pdf" class="btn btn-ghost" download>
+          <i class="fas fa-download"></i> Descargar CV
+        </a>
+        <a href="https://www.linkedin.com/in/eduardodiazdev/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </div>
+    </section>
 
   </main>
 
   <footer>
-    Hecho con <i class="fas fa-heart" style="color: var(--accent);"></i> y HTML/CSS puro · 
-    Eduardo Ignacio Díaz Mollocondo · 
+    Hecho con <i class="fas fa-heart" style="color: var(--accent);"></i> y HTML/CSS puro ·
+    Eduardo Ignacio Díaz Mollocondo ·
     <span>Juliaca, Puno — Perú</span>
   </footer>
 
   <script src="js/main.js"></script>
 </body>
-<div class="scroll-progress" id="scrollProgress"></div>
 </html>

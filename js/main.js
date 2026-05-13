@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initFloatingDots();
   initTypingEffect();
   initNavScroll();
+  initScrollProgress();
+  initBackToTop();
+  initCardTilt();
 });
 
 function initScrollAnimations() {
@@ -12,9 +15,7 @@ function initScrollAnimations() {
         setTimeout(() => entry.target.classList.add('visible'), i * 100);
       }
     });
-  }, {
-    threshold: 0.08
-  });
+  }, { threshold: 0.08 });
 
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 }
@@ -74,25 +75,23 @@ function initNavScroll() {
     });
 
     navLinks.forEach(a => {
-      a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--accent)' : '';
+      const isActive = a.getAttribute('href') === `#${current}`;
+      a.style.color = isActive ? 'var(--accent)' : '';
     });
-  });
+  }, { passive: true });
 }
 
 function initScrollProgress() {
   const bar = document.getElementById('scrollProgress');
   if (!bar) return;
-  
+
   window.addEventListener('scroll', () => {
     const scrollTop = window.scrollY;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
     bar.style.width = scrollPercent + '%';
-  });
+  }, { passive: true });
 }
-
-// Llámala en DOMContentLoaded:
-initScrollProgress();
 
 function initBackToTop() {
   const btn = document.getElementById('backToTop');
@@ -100,7 +99,7 @@ function initBackToTop() {
 
   window.addEventListener('scroll', () => {
     btn.classList.toggle('visible', window.scrollY > 500);
-  });
+  }, { passive: true });
 
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -113,13 +112,13 @@ function initCardTilt() {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      
+
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      
-      const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg
+
+      const rotateX = ((y - centerY) / centerY) * -5;
       const rotateY = ((x - centerX) / centerX) * 5;
-      
+
       card.style.setProperty('--rotate-x', `${rotateX}deg`);
       card.style.setProperty('--rotate-y', `${rotateY}deg`);
     });
@@ -130,9 +129,3 @@ function initCardTilt() {
     });
   });
 }
-
-// Llámala en DOMContentLoaded:
-initCardTilt();
-
-// Llámala en DOMContentLoaded:
-initBackToTop();
