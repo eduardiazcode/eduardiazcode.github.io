@@ -467,9 +467,8 @@ section {
 }
 
 .project-card:hover {
-  border-color: var(--accent);
-  transform: translateX(4px);
-  box-shadow: 0 12px 40px rgba(0, 229, 160, 0.06);
+  transform: perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) translateX(4px);
+  box-shadow: 0 20px 40px rgba(0,229,160,0.1);
 }
 
 .project-card:hover::before {
@@ -546,10 +545,7 @@ section {
 }
 
 .project-placeholder i {
-  font-size: 3rem;
-  color: var(--accent);
-  opacity: 0.3;
-  z-index: 1;
+  background: linear-gradient(135deg, var(--surface2), var(--bg));
 }
 
 .project-body {
@@ -955,4 +951,60 @@ footer span {
   .skill-tag i {
     font-size: 0.9rem;
   }
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  z-index: 101;
+  width: 0%;
+  transition: width 0.05s linear;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .fade-in { opacity: 1; transform: none; }
+  .photo-ring { animation: none; }
+  .dot { display: none; }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 99;
+  pointer-events: none;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-3px);
 }

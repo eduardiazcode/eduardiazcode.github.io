@@ -37,7 +37,39 @@
   
   <!-- CSS -->
   <link rel="stylesheet" href="css/styles.css">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Eduardo Ignacio Díaz Mollocondo",
+  "jobTitle": "Data Analyst | Ingeniero en Energías Renovables",
+  "url": "https://eduardiazcode.github.io/",
+  "sameAs": [
+    "https://www.linkedin.com/in/eduardodiazdev/",
+    "https://github.com/eduardiazcode"
+  ],
+  "knowsAbout": ["Python", "SQL", "Power BI", "Análisis de Datos", "Energías Renovables"],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Juliaca",
+    "addressRegion": "Puno",
+    "addressCountry": "PE"
+  }
+}
+
+<!-- Preload fonts critical -->
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<!-- Preload critical image -->
+<link rel="preload" href="images/logo.png" as="image">
+</script>
 </head>
+
+<button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
 <body>
 
   <nav role="navigation" aria-label="Navegación principal">
@@ -438,26 +470,33 @@
     <div class="divider"></div>
 
     <section id="contact">
-      <h2 class="contact-title fade-in">¿Trabajamos juntos?</h2>
-      <p class="contact-sub fade-in">
-        Estoy buscando mi primera posición formal como Data Analyst. 
-        Escríbeme o descarga mi CV para más detalles.
-      </p>
-      <div class="contact-links fade-in">
-        <a href="mailto:eduardoignaciodm@gmail.com" class="btn btn-primary">
-          <i class="fas fa-paper-plane"></i> Enviar email
-        </a>
-        <a href="assets/CV_EduardoDiaz.pdf" class="btn btn-ghost" download>
-          <i class="fas fa-download"></i> Descargar CV
-        </a>
-        <a href="https://www.linkedin.com/in/eduardodiazdev/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
-        <a href="https://github.com/eduardiazcode" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i> GitHub
-        </a>
-      </div>
-    </section>
+  <h2 class="contact-title fade-in">¿Trabajamos juntos?</h2>
+  <p class="contact-sub fade-in">
+    Estoy buscando mi primera posición formal como Data Analyst. 
+    Escríbeme o descarga mi CV para más detalles.
+  </p>
+  
+  <form action="https://formspree.io/f/TU_ID_AQUI" method="POST" class="contact-form fade-in">
+    <div class="form-grid">
+      <input type="text" name="name" placeholder="Tu nombre" required aria-label="Nombre">
+      <input type="email" name="email" placeholder="Tu email" required aria-label="Email">
+      <input type="text" name="subject" placeholder="Asunto" aria-label="Asunto">
+      <textarea name="message" placeholder="Tu mensaje..." rows="5" required aria-label="Mensaje"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="margin-top: 1rem; border: none; font-family: inherit;">
+      <i class="fas fa-paper-plane"></i> Enviar mensaje
+    </button>
+  </form>
+
+  <div class="contact-links fade-in" style="margin-top: 2rem;">
+    <a href="assets/CV_EduardoDiaz.pdf" class="btn btn-ghost" download>
+      <i class="fas fa-download"></i> Descargar CV
+    </a>
+    <a href="https://www.linkedin.com/in/eduardodiazdev/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+  </div>
+</section>
 
   </main>
 
@@ -469,4 +508,5 @@
 
   <script src="js/main.js"></script>
 </body>
+<div class="scroll-progress" id="scrollProgress"></div>
 </html>
